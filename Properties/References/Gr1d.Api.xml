@@ -1,0 +1,4068 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gr1d.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Gr1d.Api.Zone.IZoneInfo">
+            <summary>
+            Represents a zone, provided by the Gr1d
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Zone.IZoneInfo.Region">
+            <summary>
+            The Region associated with the Zone
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Zone.IZoneInfo.Name">
+            <summary>
+            The Name of the Zone
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.Range">
+            <summary>
+            Range applied to skills
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.Range.Node">
+            <summary>
+            The associated range attribute specified a number of nodes
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.Range.Sector">
+            <summary>
+            The associated range attribute indicates that the range is within the sector
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.Range.Zone">
+            <summary>
+            The associated range attribute indicates the the range is within the zone
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.Range.Region">
+            <summary>
+            The associated range attributes indicates that the range is within the region
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.Range.Global">
+            <summary>
+            The associated range attribute indicates that the range is global, effectively infinite
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Node.INodeLocation">
+            <summary>
+            Represents the location of a node within a specified Sector
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Node.INodeLocation.Exit(Gr1d.Api.Node.NodeExit)">
+            <summary>
+            Returns the node at the specified exit
+            </summary>
+            <param name="exit">The specified exit</param>
+            <returns>The node of the exit.  Returns null if there is no node at the exit</returns>
+        </member>
+        <member name="M:Gr1d.Api.Node.INodeLocation.Distance(Gr1d.Api.Node.INodeLocation)">
+            <summary>
+            Measures the distance between this node location and another
+            </summary>
+            <param name="destination">The other node's location</param>
+            <returns>An integer that represents the distance between two node locations</returns>
+        </member>
+        <member name="M:Gr1d.Api.Node.INodeLocation.RouteTo(Gr1d.Api.Node.INodeInformation,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns the most appropriate exit to take when routing from the origin to the specified destination
+            </summary>
+            <param name="origin">The origin</param>
+            <param name="destinationLayer">The destination's layer coordinate</param>
+            <param name="destinationRow">The destination's row coordinate</param>
+            <param name="destinationColumn">The destination's column coordinate</param>
+            <returns>The most appropriate exit</returns>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeLocation.Row">
+            <summary>
+            The row of the node's location
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeLocation.Column">
+            <summary>
+            The column of the node's location
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeLocation.Layer">
+            <summary>
+            The layer of the node's location
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IEngineer1">
+            <summary>
+            A level 1 engineer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IAgent">
+            <summary>
+            A level 1 generic agent
+            </summary>
+            <remarks>If players implement this class they will be unable to use class skills.  Players should implement IClass#, e.g. IEngineer1</remarks>
+        </member>
+        <member name="M:Gr1d.Api.Agent.IAgent.Initialise(Gr1d.Api.Deck.IDeck)">
+            <summary>
+            Initialises the current agent with the specified deck
+            </summary>
+            <param name="deck">A reference to the deck hosting this agent</param>
+        </member>
+        <member name="M:Gr1d.Api.Agent.IAgent.Tick(Gr1d.Api.Agent.IAgentUpdateInfo)">
+            <summary>
+            Indicates that a gr1d tick has occurred
+            </summary>
+            <param name="agentUpdate">An agent update that contains all changes since the last time you received an agent update</param>
+        </member>
+        <member name="M:Gr1d.Api.Agent.IAgent.OnAttacked(Gr1d.Api.Agent.IAgentInfo,Gr1d.Api.Agent.IAgentUpdateInfo)">
+            <summary>
+            Indicates that the current agent has been the target of an attack
+            </summary>
+            <param name="attacker">The attacker</param>
+            <param name="agentUpdate">An agent update that contains all changes since the last time you received an agent update</param>
+        </member>
+        <member name="M:Gr1d.Api.Agent.IAgent.OnArrived(Gr1d.Api.Agent.IAgentInfo,Gr1d.Api.Agent.IAgentUpdateInfo)">
+            <summary>
+            Indicates that an agent has arrived in your node
+            </summary>
+            <param name="arriver">The arriving agent</param>
+            <param name="agentUpdate">An agent update that contains all changes since the last time you received an agent update</param>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IEngineer2">
+            <summary>
+            A level 2 engineer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IEngineer3">
+            <summary>
+            A level 3 engineer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IEngineer4">
+            <summary>
+            A level 4 engineer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IEngineer5">
+            <summary>
+            A level 5 engineer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IEngineer6">
+            <summary>
+            A level 6 engineer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IEngineer7">
+            <summary>
+            A level 7 engineer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IEngineer8">
+            <summary>
+            A level 8 engineer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IEngineer9">
+            <summary>
+            A level 9 engineer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IEngineer10">
+            <summary>
+            A level 10 engineer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ITargetAgentStateResult`1">
+            <summary>
+            Represents the result of an agent targetting skill, and supports a caller specified state object
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ITargetAgentResult">
+            <summary>
+            Represents the result of an agent targetting skill
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISkillResult">
+            <summary>
+            Represents the result of a skill
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ISkillResult.Message">
+            <summary>
+            The message associated with a skill result
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ISkillResult.Warmup">
+            <summary>
+            The Warmup time taken before the skill was attempted
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ISkillResult.Cooldown">
+            <summary>
+            The cooldown time required before another skill can be attempted
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ISkillResult.LastsFor">
+            <summary>
+            The duration of this skill
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ITargetAgentResult.AffectedAgent">
+            <summary>
+            The affected agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ITargetAgentResult.Result">
+            <summary>
+            The result
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ITargetAgentStateResult`1.State">
+            <summary>
+            The caller specified state associated with this result
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.ITickInformation">
+            <summary>
+            Tick Information
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.ITickInformation.Time">
+            <summary>
+            The Time the tick occurred
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.ITickInformation.Number">
+            <summary>
+            The Number of the tick since gr1d startup
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ITargetSelfResult">
+            <summary>
+            Represents the result of a self targetting skill
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ITargetSelfResult.Result">
+            <summary>
+            The result
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant1Skills">
+            <summary>
+            Level 1 savant skills
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IAgentSkills">
+            <summary>
+            Defines general agent skills
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISkills">
+            <summary>
+            Indicates a class that contains skills
+            </summary>
+            <remarks>This interface is used by the AgentSkillExtensions code gen to generate extension methods for skills</remarks>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkills.Move(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Attempts to move to the specified node
+            </summary>
+            <param name="agent">The calling agent</param>
+            <param name="target">The destination node</param>
+            <returns>Indicates the success or otherwise of the skill</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkills.Claim(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Attempts to claim the specified node
+            </summary>
+            <param name="agent">The calling agents</param>
+            <param name="target">The target node</param>
+            <returns>Indicates the success or otherwise of the skill</returns>
+            <remarks>Claimed nodes give you resources during gr1d upkeep, and contribute to your deck attributes</remarks>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkills.Attack(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Attempts to attack the targetted agent
+            </summary>
+            <param name="agent">The calling agent</param>
+            <param name="target">The target agent</param>
+            <returns>Indicates the success of otherwise of the skill.  Attacks are instant without a cooldown or warmup and are allowed once per tick.  Attacks steal 1dLevel + Level bytes</returns>
+            <remarks>Attack has no cooldown or warmup, which enables you to perform an attack for free each tick.
+            The gr1d runtime will only allow you one attack per tick, if you attack again, you will perform a Wait and then Attack.</remarks>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkills.Wait(Gr1d.Api.Agent.IAgent)">
+            <summary>
+            Waits one update
+            </summary>
+            <param name="agent">The calling agent</param>
+            <returns>The result or otherwise of the skill</returns>
+            <remarks>Can be used to  wait until the next update.  This skill will never fail</remarks>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant1Skills.Bamf(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Teleports the target to a random node in the sector
+            </summary>
+            <param name="savant1">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant2Skills">
+            <summary>
+            Level 2 savant skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant2Skills.BufferOverflowA(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Overflows the buffers of the target agent, triggering a random skill
+            </summary>
+            <param name="savant2">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant2Skills.BufferOverflowN(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Overflows the buffers of the target node, triggering a random node affect
+            </summary>
+            <param name="savant2">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant3Skills">
+            <summary>
+            Level 3 savant skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant3Skills.Compress(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            While compressed the agent takes double damage
+            </summary>
+            <param name="savant3">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant4Skills">
+            <summary>
+            Level 4 savant skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant4Skills.Banshee(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Stuns all the targets
+            </summary>
+            <param name="savant4">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant5Skills">
+            <summary>
+            Level 5 savant skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant5Skills.Purify(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Cleanses the node of all affects
+            </summary>
+            <param name="savant5">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant6Skills">
+            <summary>
+            Level 6 savant skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant6Skills.Interfere(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Interferes with the target, causing its Nodes, and Agents collections to appear empty
+            </summary>
+            <param name="savant6">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.EffectAttribute">
+            <summary>
+            Represents the type of affect 
+            </summary>
+            <remarks>Is only applied to fields in the NodeAffectType and AgentAffectType enums</remarks>
+        </member>
+        <member name="M:Gr1d.Api.Skill.EffectAttribute.#ctor(System.Boolean)">
+            <summary>
+            Creates a new affect attribute with the specified type
+            </summary>
+            <param name="isPositive">True for a positive affect</param>
+        </member>
+        <member name="P:Gr1d.Api.Skill.EffectAttribute.IsPositive">
+            <summary>
+            Indicates if the affect is positive
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.AgentEffect">
+            <summary>
+            Set of possible agent effects
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.None">
+            <summary>
+            No effect
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Pin">
+            <summary>
+            Affected by the Pin skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.UnitTest">
+            <summary>
+            Affected by the UnitTest skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Mentor">
+            <summary>
+            Affected by the Mentor skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Decompile">
+            <summary>
+            Affected by the Decompile skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Fade">
+            <summary>
+            Affected by the Fade skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Servitude">
+            <summary>
+            Affected by the Servitude skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Zone">
+            <summary>
+            Affected by the Zone skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.TransparentProxy">
+            <summary>
+            Affected by the TransparentProxy skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.BitShift">
+            <summary>
+            Affected by the BitShift skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Haste">
+            <summary>
+            Affected by the Haste skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Scam">
+            <summary>
+            Affected by the Scam skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Shadow">
+            <summary>
+            Affected by the Shadow skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.StreetSmarts">
+            <summary>
+            Affected by the StreetSmarts skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Botnet">
+            <summary>
+            Affected by the Botnet skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Compress">
+            <summary>
+            Affected by the Compress skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Banshee">
+            <summary>
+            Affected by the Banshee skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Interfere">
+            <summary>
+            Affected by the Interfere skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Feedback">
+            <summary>
+            Affected by the Feedback skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Feint">
+            <summary>
+            Affected by the Feint skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Copy">
+            <summary>
+            Affected by the Copy skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Rally">
+            <summary>
+            Affected by the Rally skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Mercenary">
+            <summary>
+            Affected by the Mercenary skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.su">
+            <summary>
+            Affected by the su skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Worm">
+            <summary>
+            Affected by the worm skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentEffect.Bribe">
+            <summary>
+            Affected by the Bribe skill
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.ApiException">
+            <summary>
+            Represents an exception that has occurred trying to interact with objects that implement the API
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.ApiException.#ctor(System.String,System.String)">
+            <summary>
+            Initialises a new instance of the APIException class
+            </summary>
+            <param name="methodName">The method being called that caused the error</param>
+            <param name="apiClass">The class the method was being called on</param>
+        </member>
+        <member name="M:Gr1d.Api.ApiException.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initialises a new instance of the APIException class
+            </summary>
+            <param name="methodName">The method being called that caused the error</param>
+            <param name="apiClass">The class the method was being called on</param>
+            <param name="message">A message that describes the error</param>
+        </member>
+        <member name="M:Gr1d.Api.ApiException.#ctor(System.String,System.String,System.String,System.Exception)">
+            <summary>
+            Initialises a new instance of the APIException class
+            </summary>
+            <param name="methodName">The method being called that caused the error</param>
+            <param name="apiClass">The class the method was being called on</param>
+            <param name="message">A message that describes the error</param>
+            <param name="innerException">The exception that is the cause of the current exception</param>
+        </member>
+        <member name="P:Gr1d.Api.ApiException.MethodName">
+            <summary>
+            The name of the API Method that caused the exception
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.ApiException.ApiClass">
+            <summary>
+            The name of the API Class that caused the exception
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.TargetAgentCollectionCallback">
+            <summary>
+            Represents an agent-collection targetting skill
+            </summary>
+            <param name="result">The result of the skill</param>
+            <remarks>This delegate is used in deferred mode</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.TargetAgentCollectionStateCallback`1">
+            <summary>
+            Represents an agent-collection targetting skill, and supports a caller specified state object
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="result">The result of the skill</param>
+            <remarks>This delegate is used in deferred mode</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop1Skills">
+            <summary>
+            Level 1 sysop skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop1Skills.Fade(Gr1d.Api.Agent.IAgent)">
+            <summary>
+            Makes the sysop difficult to detect
+            </summary>
+            <param name="sysop1">The calling agent</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Fade removes the sysop from all available agent collections.  Agents that have sighted and stored a reference to the Sysop can still target it while faded, however in this case the Sysop is still not targetted by any area affects</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop2Skills">
+            <summary>
+            Level 2 sysop skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop2Skills.Feedback(Gr1d.Api.Agent.IAgent)">
+            <summary>
+            Causes damage to be dealt back to attackers
+            </summary>
+            <param name="savant2">The calling agent</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Deals half damage back to all attackers</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop3Skills">
+            <summary>
+            Level 3 sysop skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop3Skills.FalseAddress(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Sends a false node address to the target
+            </summary>
+            <param name="sysop3">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Causes the target to immediately relocate to an adjacent node</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop4Skills">
+            <summary>
+            Level 4 sysop skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop4Skills.DarkFibreA(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Teleports to the target agent
+            </summary>
+            <param name="sysop4">The calling agent</param>
+            <param name="target">The target agent</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Exploiting knowledge of dark fibre, moves immediately to the target agent</remarks>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop4Skills.DarkFibreN(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Teleports to the target node
+            </summary>
+            <param name="sysop4">The calling agent</param>
+            <param name="target">The target node</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Exploiting knowledge of dark fibre, moves immediately to the target node</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop5Skills">
+            <summary>
+            Level 5 sysop skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop5Skills.Bitrot(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Introduces periodic damage into the target node
+            </summary>
+            <param name="sysop5">The calling agent</param>
+            <param name="target">The target node</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop6Skills">
+            <summary>
+            Level 6 sysop skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop6Skills.su(Gr1d.Api.Agent.IAgent)">
+            <summary>
+            Makes subsequent skills take less time and act more reliably
+            </summary>
+            <param name="sysop6">The calling agent</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>While running as su, all skills are subject to a 1 tick warmup, no cooldown, and all rolls are natural 20s</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ILibrarian1">
+            <summary>
+            A level 1 Librarian
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ILibrarian2">
+            <summary>
+            A level 2 Librarian
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ILibrarian3">
+            <summary>
+            A level 3 Librarian
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ILibrarian4">
+            <summary>
+            A level 4 Librarian
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ILibrarian5">
+            <summary>
+            A level 5 Librarian
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ILibrarian6">
+            <summary>
+            A level 6 Librarian
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ILibrarian7">
+            <summary>
+            A level 7 Librarian
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ILibrarian8">
+            <summary>
+            A level 8 Librarian
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ILibrarian9">
+            <summary>
+            A level 9 Librarian
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ILibrarian10">
+            <summary>
+            A level 10 Librarian
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Deck.IDeck">
+            <summary>
+            Basic Deck interface
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Deck.IDeck.Trace(System.String,Gr1d.Api.Deck.TraceType)">
+            <summary>
+            Traces the specified message
+            </summary>
+            <param name="message">The message</param>
+            <param name="type">Identifies the type of event that caused the trace</param>
+        </member>
+        <member name="M:Gr1d.Api.Deck.IDeck.Trace(System.String,Gr1d.Api.Deck.TraceType,System.Object[])">
+            <summary>
+            Traces a formatted string, which contains zero or more format specifications, to this instance. Each format specification is replaced by the string representation of a corresponding object argument.
+            </summary>
+            <param name="message">The composite format message</param>
+            <param name="type">Identifies the type of event that caused the trace</param>
+            <param name="args">An array of objects to format</param>
+        </member>
+        <member name="M:Gr1d.Api.Deck.IDeck.Trace(System.String,System.String)">
+            <summary>
+            Traces the specified message
+            </summary>
+            <param name="message">The message</param>
+            <param name="category">Custom event category that caused the trace</param>
+        </member>
+        <member name="M:Gr1d.Api.Deck.IDeck.Trace(System.String,System.String,System.Object[])">
+            <summary>
+            Traces a formatted string, which contains zero or more format specifications, to this instance. Each format specification is replaced by the string representation of a corresponding object argument.
+            </summary>
+            <param name="message">The composite format message</param>
+            <param name="category">Custom event category that caused the trace</param>
+            <param name="args">An array of objects to format</param>
+        </member>
+        <member name="M:Gr1d.Api.Deck.IDeck.GetInitialisedAgents``1">
+            <summary>
+            Gets the set of initialised agents of (or AssignableFrom) the specified type parameter
+            </summary>
+            <typeparam name="AgentType">Type to match on an return</typeparam>
+            <returns>A set of agents</returns>
+        </member>
+        <member name="M:Gr1d.Api.Deck.IDeck.Resolve(Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Returns the estimated Network Ticks to the specified Node
+            </summary>
+            <param name="node">The specified Node</param>
+            <returns>The number of Network Ticks</returns>
+        </member>
+        <member name="P:Gr1d.Api.Deck.IDeck.Endpoint">
+            <summary>
+            Gets a reference to the current IAgentInfo endpoint
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Deck.IDeck.TickNumber">
+            <summary>
+            Gets the Tick Number since the Runtime started
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer1Skills">
+            <summary>
+            Level 1 racketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer1Skills.Scam(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Scams the target, disrupting them
+            </summary>
+            <param name="racketeer1">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>While subject to this affect, the target cannot use any skills lower than the level of the attacker.</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer2Skills">
+            <summary>
+            Level 2 racketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer2Skills.Shadow(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Shadows the target, moving along with it
+            </summary>
+            <param name="racketeer2">The calling agent</param>
+            <param name="target">The target agent</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>When shadowing an agent</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer3Skills">
+            <summary>
+            Level 3 racketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer3Skills.StreetSmarts(Gr1d.Api.Agent.IAgent)">
+            <summary>
+            Makes the caster immune to most affects
+            </summary>
+            <param name="racketeer3">The calling agent</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer4Skills">
+            <summary>
+            Level 4 racketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer4Skills.Wall(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Deals damage to all targets
+            </summary>
+            <param name="racketeer4">The calling agent</param>
+            <param name="target">The targets</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer5Skills">
+            <summary>
+            Level 5 racketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer5Skills.Rally(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Rally's the targets, granting increased attributes
+            </summary>
+            <param name="racketeer5">The calling agent</param>
+            <param name="target">The targets</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer6Skills">
+            <summary>
+            Level 6 racketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer6Skills.Whirlwind(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Causes node wide damage
+            </summary>
+            <param name="racketeer6">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>This skill damages in in the node for 1 standard attack, including the calling agent</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.INpc1Skills">
+            <summary>
+            Level 1 NPC skills
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer1Skills">
+            <summary>
+            Level 1 engineer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer1Skills.UnitTest(Gr1d.Api.Agent.IAgent)">
+            <summary>
+            Improves the reliability of the agent
+            </summary>
+            <param name="engineer1">The calling agent</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Unit tests ensure the success of subsequent skills.  When subject to the unit test affect, the agent will not fail a reliability roll</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer1Skills">
+            <summary>
+            Level 1 Marketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer1Skills.Servitude(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Shares damage with the target
+            </summary>
+            <param name="marketeer1">The calling agent</param>
+            <param name="target">The target agent</param>
+            <remarks>Whilst in servitude, an agent takes half the damage of the agent it serves</remarks>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.INpc2Skills">
+            <summary>
+            Level 2 NPC skills
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer2Skills">
+            <summary>
+            Level 2 engineer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer2Skills.Pin(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Makes the targetted agent unable to move
+            </summary>
+            <param name="engineer2">The calling agent</param>
+            <param name="target">The target agent</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Pinning an agent in memory makes it unable to leave its current node.  When subject to the pin affect, the target agent is unable to use any movement skills</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer2Skills">
+            <summary>
+            Level 2 marketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer2Skills.Payoff(Gr1d.Api.Agent.IAgent)">
+            <summary>
+            Relinquishes random nodes to recover stack
+            </summary>
+            <param name="marketeer2">The calling agent</param>
+            <remarks>Relinquishes an owned node to recover stack</remarks>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.DifficultyAttribute">
+            <summary>
+            Indicates that the decorated skill requires a difficult check
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.DifficultyAttribute.#ctor(PlayerAttribute,System.Int32)">
+            <summary>
+            Creates a new difficulty attribute with the specified player attribute
+            </summary>
+            <param name="attribute">The player attribute</param>
+            <param name="difficulty">The difficulty applied</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.DifficultyAttribute.#ctor(PlayerAttribute)">
+            <summary>
+            Creates a new difficulty attribute with the specified player attribute
+            </summary>
+            <param name="attribute">The player attribute</param>
+        </member>
+        <member name="P:Gr1d.Api.Skill.DifficultyAttribute.Difficulty">
+            <summary>
+            The difficulty to check
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.DifficultyAttribute.PlayerAttribute">
+            <summary>
+            The attribute to perform the difficulty check against
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ConstantDurationAttribute">
+            <summary>
+            Indicates that the annotated skill has a constant duration
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISkillDurationAttribute">
+            <summary>
+            Indicates that an attribute specifies a skill duration
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillDurationAttribute.Duration(Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Returns the duration
+            </summary>
+            <param name="agent">The agent to calculate the duration with</param>
+            <returns>A numeric duration</returns>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ISkillDurationAttribute.DurationType">
+            <summary>
+            The type of duration
+            </summary>
+            <see cref="T:Gr1d.Api.Skill.DurationType"/>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ISkillDurationAttribute.IsBonus">
+            <summary>
+            Determines whether this duration is a bonus (should be subtracted from the overall duration)
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ConstantDurationAttribute.Duration(Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Determines the duration based on the specified agent
+            </summary>
+            <param name="agent">The specified agent</param>
+            <returns>The duration</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ConstantDurationAttribute.#ctor(Gr1d.Api.Skill.DurationType,System.Int32)">
+            <summary>
+            Creates a new constant duration, with the specified duration type and duration
+            </summary>
+            <param name="durationType">The specified duration type</param>
+            <param name="duration">The specified duration</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ConstantDurationAttribute.#ctor(Gr1d.Api.Skill.DurationType,System.Int32,System.Boolean)">
+            <summary>
+            Creates a new constant duration, with the specified duration type and duration, and bonus indicator
+            </summary>
+            <param name="durationType">The specified duration type</param>
+            <param name="duration">The specified duration</param>
+            <param name="isBonus">Indicates if this is a bonus duration (should be subtracted from the overall duration)</param>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ConstantDurationAttribute.DurationType">
+            <summary>
+            The type of duration
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ConstantDurationAttribute.Number">
+            <summary>
+            The number associated with this duration
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ConstantDurationAttribute.IsBonus">
+            <summary>
+            Indicates whether this a bonus duration (will be subtracted from the overall duration)
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.SafeRecursiveCallAttribute">
+            <summary>
+            Use this class to mark reentrant methods as safe, that is, you are 100% sure they cannot stackover in any condition
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Node.NodeEffect">
+            <summary>
+            Represents the types of node effects
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeEffect.None">
+            <summary>
+            No effect
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeEffect.Struts">
+            <summary>
+            Agents cannot enter or leave the node
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeEffect.Scaffold">
+            <summary>
+            The node is immune to all node targetting effects
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeEffect.MarketForces">
+            <summary>
+            All skills used in this node are forced to pass a Market DC
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeEffect.Fragment">
+            <summary>
+            All agents in this node have their reliability halved
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeEffect.Virus">
+            <summary>
+            The node deals massive damage to those who pass
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeEffect.Bitrot">
+            <summary>
+            The node deals periodic damage
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.RollDurationAttribute">
+            <summary>
+            Indicates a roll that should occur to calculate the duration of the annotated skill
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.RollDurationAttribute.Duration(Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Determines the duration based on the specified agent
+            </summary>
+            <param name="agent">The specified agent</param>
+            <returns>The duration</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.RollDurationAttribute.#ctor(Gr1d.Api.Skill.DurationType,PlayerAttribute,System.Int32)">
+            <summary>
+            Creates a roll duration attribute, with the specified type, attribute, and dice size
+            </summary>
+            <param name="durationType">The specified duration type</param>
+            <param name="attribute">The attribute used to roll with</param>
+            <param name="d">The size of the dice to roll</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.RollDurationAttribute.#ctor(Gr1d.Api.Skill.DurationType,PlayerAttribute,System.Boolean)">
+            <summary>
+            Creates a roll duration attribute, with the specified type, attribute, dice size, and bonus indicator
+            </summary>
+            <param name="durationType">The specified duration type</param>
+            <param name="attribute">The attribute used to roll with</param>
+            <param name="isBonus">Indicates if this is a bonus duration (should be subtracted from the overall duration)</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.RollDurationAttribute.#ctor(Gr1d.Api.Skill.DurationType,PlayerAttribute)">
+            <summary>
+            Creates a roll duration attribute, with the specified type, attribute, dice size, and bonus indicator
+            </summary>
+            <param name="durationType">The specified duration type</param>
+            <param name="attribute">The attribute used to roll with</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.RollDurationAttribute.#ctor(Gr1d.Api.Skill.DurationType,PlayerAttribute,System.Int32,System.Int32)">
+            <summary>
+            Creates a roll duration attribute, with the specified type, attribute, dice size, number of die
+            </summary>
+            <param name="durationType">The specified duration type</param>
+            <param name="attribute">The attribute used to roll with</param>
+            <param name="d">The size of the dice to roll</param>
+            <param name="n">The number of die to roll</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.RollDurationAttribute.#ctor(Gr1d.Api.Skill.DurationType,PlayerAttribute,System.Int32,System.Boolean)">
+            <summary>
+            Creates a roll duration attribute, with the specified type, attribute, dice size, number of die, and bonus indicator
+            </summary>
+            <param name="durationType">The specified duration type</param>
+            <param name="attribute">The attribute used to roll with</param>
+            <param name="d">The size of the dice to roll</param>
+            <param name="isBonus">Indicates if this is a bonus duration (should be subtracted from the overall duration)</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.RollDurationAttribute.#ctor(Gr1d.Api.Skill.DurationType,PlayerAttribute,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Creates a roll duration attribute, with the specified type, attribute, dice size, number of die, and bonus indicator
+            </summary>
+            <param name="durationType">The specified duration type</param>
+            <param name="attribute">The attribute used to roll with</param>
+            <param name="d">The size of the dice to roll</param>
+            <param name="n">The number of die to roll</param>
+            <param name="isBonus">Indicates if this is a bonus duration (should be subtracted from the overall duration)</param>
+        </member>
+        <member name="P:Gr1d.Api.Skill.RollDurationAttribute.PlayerAttribute">
+            <summary>
+            The player attribute associated with this duration
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.RollDurationAttribute.D">
+            <summary>
+            The die size to roll
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.RollDurationAttribute.N">
+            <summary>
+            The number of time to roll the die
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.RollDurationAttribute.DurationType">
+            <summary>
+            The type of duration
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.RollDurationAttribute.IsBonus">
+            <summary>
+            Indicates whether this a bonus duration (will be subtracted from the overall duration)
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Region.IRegionInfo">
+            <summary>
+            A region, provided by the Gr1d
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Region.IRegionInfo.Name">
+            <summary>
+            The Name of the Region
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ITargetSelfStateResult`1">
+            <summary>
+            Represents the result of a self targetting skill, and supports a caller specified state object
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ITargetSelfStateResult`1.State">
+            <summary>
+            The caller specified state associated with this result
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate1Skills">
+            <summary>
+            Level 1 pirate skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate1Skills.Copy(Gr1d.Api.Agent.IAgent)">
+            <summary>
+            Creates a copy of itself
+            </summary>
+            <param name="pirate1">The calling agent</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Creates a 1 byte copy of itself, otherwise impossible to distinguish from the original.  Contrary to what is written on "the internet", the Copy can claim nodes.  There can be 1 copy active for each level the player has</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate2Skills">
+            <summary>
+            Level 2 pirate skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate2Skills.Init3(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Remove all negative affects from the target
+            </summary>
+            <param name="pirate2">The calling agent</param>
+            <param name="target">THe target</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>This difficult ability requires a difficult check against all attributes</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate3Skills">
+            <summary>
+            Level 3 pirate skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate3Skills.Feint(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Apply negative affects silently
+            </summary>
+            <param name="pirate3">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Attacks and Negative affects can be applied to the target without it being notified via OnAttacked etc.</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate4Skills">
+            <summary>
+            Level 4 pirate skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate4Skills.Summon(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Summons the targetted agent
+            </summary>
+            <param name="pirate4">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Summons the targetted agent from anywhere in gr1d.org cyberspace</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate5Skills">
+            <summary>
+            Level 5 pirate skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate5Skills.Virus(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Infects the node and its surrounds
+            </summary>
+            <param name="pirate5">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Causes damage and the loss of nodes to other agents that enter the afflicted node.  Affects surrounding nodes as well</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate6Skills">
+            <summary>
+            Level 6 pirate skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate6Skills.Botnet(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Gives the targets control of a botnet for increased performance
+            </summary>
+            <param name="pirate6">The calling agent</param>
+            <param name="target">The targets</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISavant1">
+            <summary>
+            A level 1 Savant
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISavant2">
+            <summary>
+            A level 2 Savant
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISavant3">
+            <summary>
+            A level 3 Savant
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISavant4">
+            <summary>
+            A level 4 Savant
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISavant5">
+            <summary>
+            A level 5 Savant
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISavant6">
+            <summary>
+            A level 6 Savant
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISavant7">
+            <summary>
+            A level 7 Savant
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISavant8">
+            <summary>
+            A level 8 Savant
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISavant9">
+            <summary>
+            A level 9 Savant
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISavant10">
+            <summary>
+            A level 10 Savant
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.AgentStatus">
+            <summary>
+            The status of the assocated agent
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentStatus.None">
+            <summary>
+            No status available
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentStatus.Available">
+            <summary>
+            Available
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentStatus.Uploading">
+            <summary>
+            Uploading
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentStatus.Downloading">
+            <summary>
+            Downloading
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentStatus.Running">
+            <summary>
+            Running
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentStatus.Crashing">
+            <summary>
+            Crashing
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.AgentAction">
+            <summary>
+            The action the associated agent is performing
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentAction.None">
+            <summary>
+            The agent isn't performing an action
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentAction.Exploring">
+            <summary>
+            Exploring the world
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentAction.Raiding">
+            <summary>
+            Raiding a player's deck
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentAction.Defending">
+            <summary>
+            Defending a player's deck
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.DurationType">
+            <summary>
+            Indicates which duration a DurationAttribute is specifying
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.DurationType.Warmup">
+            <summary>
+            The Warm Up duration type
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.DurationType.Cooldown">
+            <summary>
+            The Cool Down duration type
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.DurationType.LastsFor">
+            <summary>
+            The Lasts For duration type
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Sector.ISectorInfo">
+            <summary>
+            A sector, provided by the Gr1d
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Sector.ISectorInfo.Zone">
+            <summary>
+            The Zone associated with the Sector
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Sector.ISectorInfo.Name">
+            <summary>
+            The Name of the Sector
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Sector.ISectorInfo.Id">
+            <summary>
+            The ID of the Sector
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.SkillTypeAttribute">
+            <summary>
+            Indicates the type of skill representated by the annotated method
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.SkillTypeAttribute.#ctor(Gr1d.Api.Skill.SkillType)">
+            <summary>
+            Creates a new skill attributes of the specified type
+            </summary>
+            <param name="type">The type of skill</param>
+        </member>
+        <member name="P:Gr1d.Api.Skill.SkillTypeAttribute.Type">
+            <summary>
+            The type of skill
+            </summary>
+            <seealso cref="T:Gr1d.Api.Skill.SkillType"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.NegativeEffectAttribute">
+            <summary>
+            Represents a negative affect
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.NegativeEffectAttribute.#ctor">
+            <summary>
+            Creates a new negative affect attribute
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ITargetAgentCollectionResult">
+            <summary>
+            Represents the result of an agent-collection targetting skill
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ITargetAgentCollectionResult.AffectedAgents">
+            <summary>
+            The result of an agent-targetting skill for each affected agent
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Node.NodeExit">
+            <summary>
+            Possible exit values from a node
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.None">
+            <summary>
+            No exit
+            </summary>
+            <remarks>Used when no exit could be found</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Alpha">
+            <summary>
+            Alpha exit
+            </summary>
+            <remarks>Adjacent, same layer, Layer 0, Col -1, Row -1</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Beta">
+            <summary>
+            Beta exit
+            </summary>
+            <remarks>Adjacent, same layer, Layer 0, Col -1, Row 0</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Gamma">
+            <summary>
+            Gamma exit
+            </summary>
+            <remarks>Adjacent, same layer, Layer 0, Col 0, Row -1</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Delta">
+            <summary>
+            Delta exit
+            </summary>
+            <remarks>Layer below</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Epsilon">
+            <summary>
+            Epsilon exit
+            </summary>
+            <remarks>Layer below</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Zeta">
+            <summary>
+            Zeta exit
+            </summary>
+            <remarks>Layer below</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Eta">
+            <summary>
+            Eta exit
+            </summary>
+            <remarks>Layer above</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Theta">
+            <summary>
+            Theta exit
+            </summary>
+            <remarks>Layer above</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Iota">
+            <summary>
+            Iota exit
+            </summary>
+            <remarks>Layer above</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Kappa">
+            <summary>
+            Kappa exit
+            </summary>
+            <remarks>Adjacent, same layer, Layer 0, Col 0, Row +1</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Lambda">
+            <summary>
+            Lambda exit
+            </summary>
+            <remarks>Adjacent, same layer, Layer 0, Col +1, Row 0</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Node.NodeExit.Mu">
+            <summary>
+            Mu exit
+            </summary>
+            <remarks>Adjacent, same layer, Layer 0, Col +1, Row +1</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.PositiveEffectAttribute">
+            <summary>
+            Represents a positive affect type
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.PositiveEffectAttribute.#ctor">
+            <summary>
+            Creates a new positive affect attribute
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISkillProvider">
+            <summary>
+            A provider of skill calling methods (deferred and direct)
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Direct(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo,Gr1d.Api.Skill.ITargetAgentResult},Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Calls an agent targetting skill in Direct mode
+            </summary>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target agent</param>
+            <returns>The result of the skill</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Direct``1(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo,Gr1d.Api.Skill.ITargetAgentResult},Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Calls an agent targetting skill in Direct mode, and supports a user specified state object
+            </summary>
+            <typeparam name="TState">The type of the user state object</typeparam>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target agent</param>
+            <param name="state">The user state object</param>
+            <returns>The result of the skill</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Deferred(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo,Gr1d.Api.Skill.ITargetAgentResult},Gr1d.Api.Agent.IAgentInfo,Gr1d.Api.Skill.TargetAgentCallback)">
+            <summary>
+            Calls an agent targetting skill in Deferred mode
+            </summary>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target agent</param>
+            <param name="callback">The callback that will receive the result of the skill</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Deferred``1(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo,Gr1d.Api.Skill.ITargetAgentResult},Gr1d.Api.Agent.IAgentInfo,Gr1d.Api.Skill.TargetAgentStateCallback{``0},``0)">
+            <summary>
+            Calls an agent targetting skill in Deferred mode, and supports a user specified state object
+            </summary>
+            <typeparam name="TState">The type of the user state object</typeparam>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target agent</param>
+            <param name="callback">The callback that will receive the result of the skill</param>
+            <param name="state">The user specified state object</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Direct(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation,Gr1d.Api.Skill.ITargetNodeResult},Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Calls a node targetting skill in Direct mode
+            </summary>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target node</param>
+            <returns>The result of the skill</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Direct``1(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation,Gr1d.Api.Skill.ITargetNodeResult},Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Calls a node targetting skill in Direct mode, and supports a user specified state object
+            </summary>
+            <typeparam name="TState">The type of the user state object</typeparam>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target node</param>
+            <param name="state">The user state object</param>
+            <returns>The result of the skill</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Deferred(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation,Gr1d.Api.Skill.ITargetNodeResult},Gr1d.Api.Node.INodeInformation,Gr1d.Api.Skill.TargetNodeCallback)">
+            <summary>
+            Calls a node targetting skill in Deferred mode
+            </summary>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target node</param>
+            <param name="callback">The callback that will receive the result of the skill</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Deferred``1(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation,Gr1d.Api.Skill.ITargetNodeResult},Gr1d.Api.Node.INodeInformation,Gr1d.Api.Skill.TargetNodeStateCallback{``0},``0)">
+            <summary>
+            Calls a node targetting skill in Deferred mode, and supports a user specified state object
+            </summary>
+            <typeparam name="TState">The type of the user state object</typeparam>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target node</param>
+            <param name="callback">The callback that will receive the result of the skill</param>
+            <param name="state">The user specified state object</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Direct(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Skill.ITargetSelfResult})">
+            <summary>
+            Calls a self targetting skill in Direct mode
+            </summary>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <returns>The result of the skill</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Direct``1(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Skill.ITargetSelfResult},``0)">
+            <summary>
+            Calls a self targetting skill in Direct mode, and supports a user specified state object
+            </summary>
+            <typeparam name="TState">The type of the user state object</typeparam>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="state">The user state object</param>
+            <returns>The result of the skill</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Deferred(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Skill.ITargetSelfResult},Gr1d.Api.Skill.TargetSelfCallback)">
+            <summary>
+            Calls a self targetting skill in Deferred mode
+            </summary>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="callback">The callback that will receive the result of the skill</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Deferred``1(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,Gr1d.Api.Skill.ITargetSelfResult},Gr1d.Api.Skill.TargetSelfStateCallback{``0},``0)">
+            <summary>
+            Calls a self targetting skill in Deferred mode, and supports a user specified state object
+            </summary>
+            <typeparam name="TState">The type of the user state object</typeparam>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="callback">The callback that will receive the result of the skill</param>
+            <param name="state">The user specified state object</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Direct(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},Gr1d.Api.Skill.ITargetAgentCollectionResult},System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Calls an agent-collection targetting skill in Direct mode
+            </summary>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target agent-collection</param>
+            <returns>The result of the skill</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Direct``1(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},Gr1d.Api.Skill.ITargetAgentCollectionResult},System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},``0)">
+            <summary>
+            Calls an agent-collection targetting skill in Direct mode, and supports a user specified state object
+            </summary>
+            <typeparam name="TState">The type of the user state object</typeparam>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target agent-collection</param>
+            <param name="state">The user state object</param>
+            <returns>The result of the skill</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Deferred(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},Gr1d.Api.Skill.ITargetAgentCollectionResult},System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},Gr1d.Api.Skill.TargetAgentCollectionCallback)">
+            <summary>
+            Calls an agent-collection targetting skill in Deferred mode
+            </summary>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target agent-collection</param>
+            <param name="callback">The callback that will receive the result of the skill</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISkillProvider.Deferred``1(Gr1d.Api.Agent.IAgent,System.Func{Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},Gr1d.Api.Skill.ITargetAgentCollectionResult},System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},Gr1d.Api.Skill.TargetAgentCollectionStateCallback{``0},``0)">
+            <summary>
+            Calls an agent-collection targetting skill in Deferred mode, and supports a user specified state object
+            </summary>
+            <typeparam name="TState">The type of the user state object</typeparam>
+            <param name="caster">The agent using the skill</param>
+            <param name="skill">The skill to use</param>
+            <param name="target">The target agent-collection</param>
+            <param name="callback">The callback that will receive the result of the skill</param>
+            <param name="state">The user specified state object</param>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker1Skills">
+            <summary>
+            Level 1 hacker skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker1Skills.TheZone(Gr1d.Api.Agent.IAgent)">
+            <summary>
+            Increases all attributes
+            </summary>
+            <param name="hacker1">The calling agent</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>For those of us that have been in "the zone"</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker2Skills">
+            <summary>
+            Level 2 hacker skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker2Skills.Fragment(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Fragments the node, reducing reliability of code running it
+            </summary>
+            <param name="hacker2">The calling agent</param>
+            <param name="target">The target node</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker3Skills">
+            <summary>
+            Level 3 hacker skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker3Skills.TransparentProxy(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Runs up a transparent proxy between the target and the gr1d.
+            </summary>
+            <param name="hacker3">The calling agent</param>
+            <param name="target">The target agent</param>
+            <returns>The success or otherwise</returns>
+            <remarks>The transparent proxy modifies all Move requests, causing erratic movement</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker4Skills">
+            <summary>
+            Level 4 hacker skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker4Skills.BitShift(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Shifts bits with the target agent
+            </summary>
+            <param name="hacker4">The calling agent</param>
+            <param name="target"></param>
+            <returns>The result or otherwise of the skill</returns>
+            <remarks>This extremely difficult technique causes the target and attacker to effectively swap memory addresses.  All damage and skills that would normally affect the attacker now affect the target, and vice versa</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker5Skills">
+            <summary>
+            Level 5 hacker skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker5Skills.Haste(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Makes the targets perform more quickly
+            </summary>
+            <param name="hacker5">The calling agent</param>
+            <param name="target">The targets</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Causes the targets to decrease all cooldown and warmups to 1</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker6Skills">
+            <summary>
+            Level 6 hacker skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker6Skills.Worm(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Infects the targets with a damage dealing worm
+            </summary>
+            <param name="hacker6">The calling agent</param>
+            <param name="target">The targets</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Each infect agent will take a standard attack for each affect that is applied to it</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ChallengeAttribute">
+            <summary>
+            Indicates that the decorated skill requires a challenge
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ChallengeAttribute.#ctor(PlayerAttribute)">
+            <summary>
+            Creates a new challenger attribute
+            </summary>
+            <param name="attribute">The attribute that is rolled by both challenger and defender</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ChallengeAttribute.#ctor(PlayerAttribute,PlayerAttribute)">
+            <summary>
+            Creates a new challenger attribute
+            </summary>
+            <param name="challengeAttribute">The attribute that is rolled by the challenger</param>
+            <param name="defenseAttribute">The attribute that is rolled by the defender</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ChallengeAttribute.#ctor(PlayerAttribute,System.Int32,PlayerAttribute,System.Int32)">
+            <summary>
+            Creates a new challenger attribute
+            </summary>
+            <param name="challengeAttribute">The attribute that is rolled by the challenger</param>
+            <param name="challengeDifficulty">The difficulty added to the challenger</param>
+            <param name="defenseAttribute">The attribute that is rolled by the defender</param>
+            <param name="defenseDifficulty">The difficulty added to the defender</param>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ChallengeAttribute.DefenseDifficulty">
+            <summary>
+            Defense difficulty
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ChallengeAttribute.ChallengeDifficulty">
+            <summary>
+            Challenge difficulty
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ChallengeAttribute.DefenderAttribute">
+            <summary>
+            Defender attribute
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ChallengeAttribute.ChallengerAttribute">
+            <summary>
+            Challenger attribute
+            </summary>
+        </member>
+        <member name="T:NodeAttribute">
+            <summary>
+            Node attribute
+            </summary>
+        </member>
+        <member name="F:NodeAttribute.FLOPs">
+            <summary>
+            FLOPs
+            </summary>
+        </member>
+        <member name="F:NodeAttribute.Latency">
+            <summary>
+            Latency
+            </summary>
+        </member>
+        <member name="F:NodeAttribute.Memory">
+            <summary>
+            Memory
+            </summary>
+        </member>
+        <member name="F:NodeAttribute.Storage">
+            <summary>
+            Storage
+            </summary>
+        </member>
+        <member name="F:NodeAttribute.Encryption">
+            <summary>
+            Encryption
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.TargetAgentCallback">
+            <summary>
+            Represents the result of an agent targetting skill
+            </summary>
+            <param name="result">The result of the skill</param>
+            <remarks>This delegate is used in deferred mode</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.TargetAgentStateCallback`1">
+            <summary>
+            Represents the result of an agent targetting skill, and supports a caller specified state object
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="result">The result of the skill</param>
+            <remarks>This delegate is used in deferred mode</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.SkillType">
+            <summary>
+            A type of skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.SkillType.Movement">
+            <summary>
+            A movement related skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.SkillType.Offensive">
+            <summary>
+            An offensive skill, causing a negative affect on either a node or agent
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.SkillType.Defensive">
+            <summary>
+            A defensive skill, avoiding a negative affect on either a node or agent
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.SkillType.Buff">
+            <summary>
+            A buff skill, causing a positive affect on either a node or agent
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.SkillType.Utility">
+            <summary>
+            A utility skill.  These skills do not cause any affects
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.AgentResultType">
+            <summary>
+            Indicates the success or otherwise of an agent targetting skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.AgentResultType.Success">
+            <summary>
+            Indicates success
+            </summary>
+            <remarks>All other values indicate a failure of some sort</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Skill.AgentResultType.FailedImmune">
+            <summary>
+            Failure.  The targetted agent has an effect that makes it immune to this skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.AgentResultType.FailedOutOfRange">
+            <summary>
+            Failure.  The targetted agent was out of range
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.AgentResultType.FailedInvalidTarget">
+            <summary>
+            Failure.  The target is invalid due to core dump, download
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.AgentResultType.FailedDifficulty">
+            <summary>
+            Failure.  The agent failed one of th edifficulties
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.AgentResultType.FailedChallenge">
+            <summary>
+            Failure.  The agent failed one of the challenge rolles
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.AgentResultType.FailedAfflicted">
+            <summary>
+            Failure.  The caster is afflicted by an effect making the action impossible
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.AgentResultType.FailedInvalidOperation">
+            <summary>
+            Failure.  An invalid operation was detected, making the action impossible
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ITargetAgentCollectionStateResult`1">
+            <summary>
+            Represents the result of an agent-collection targetting skill, and supports a caller specified state object
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ITargetAgentCollectionStateResult`1.AffectedAgents">
+            <summary>
+            The result of an agent-targetting skill for each affected agent, including support for caller-specified state object
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ITargetNodeResult">
+            <summary>
+            Represents the result of a node targetting skill
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ITargetNodeResult.AffectedNode">
+            <summary>
+            The node affected by this skill
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ITargetNodeResult.Result">
+            <summary>
+            Indicates the success or otherwise of the skill
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Player.IPlayer">
+            <summary>
+            A player, provided by the Gr1d
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Player.IPlayer.Sector">
+            <summary>
+            The Sector of the Player
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Player.IPlayer.Id">
+            <summary>
+            The Id of the Player
+            </summary>
+            <remarks>Requires opposed encryption check to obtain</remarks>
+            <example></example>
+        </member>
+        <member name="P:Gr1d.Api.Player.IPlayer.DisplayHandle">
+            <summary>
+            The DisplayHandle of the player
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Node.INodeInformation">
+            <summary>
+            Represents a node
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeInformation.Sector">
+            <summary>
+            The associated Sector
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeInformation.OpposingAgents">
+            <summary>
+            Opposing agents in this node
+            </summary>
+            <remarks>Opposing agents are those that are defending when you are raiding or vice versa, or not in the same clan, pack, or group (while exploring)</remarks>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeInformation.AlliedAgents">
+            <summary>
+            Allied agents in this node
+            </summary>
+            <remarks>Allied agents are the opposite of opposing agents</remarks>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeInformation.OtherAgents">
+            <summary>
+            Other agents in this node
+            </summary>
+            <remarks>This does not include any of your agents</remarks>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeInformation.AllAgents">
+            <summary>
+            All agents in the node
+            </summary>
+            <remarks>This includes your agents</remarks>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeInformation.MyAgents">
+            <summary>
+            Gets your agents
+            </summary>
+            <remarks>Only includes your agents</remarks>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeInformation.Exits">
+            <summary>
+            The exits of this node
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeInformation.Owner">
+            <summary>
+            The owner of the node.
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeInformation.IsClaimable">
+            <summary>
+            Indicates whether its possible to claim the node
+            </summary>
+            <remarks>Does not take into account difficulty checks</remarks>
+        </member>
+        <member name="P:Gr1d.Api.Node.INodeInformation.Effects">
+            <summary>
+            Effects on the current node
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.CausesAgentEffectAttribute">
+            <summary>
+            Indicates that the annoated skill causes the specified agent effect
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.CausesAgentEffectAttribute.#ctor(Gr1d.Api.Agent.AgentEffect)">
+            <summary>
+            Creates a new causes agent affect attribute, with the specified affect
+            </summary>
+            <param name="effect">The specified affect</param>
+        </member>
+        <member name="P:Gr1d.Api.Skill.CausesAgentEffectAttribute.Effect">
+            <summary>
+            The affect caused by the skill
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.RangeAttribute">
+            <summary>
+            Indicates the range of the associated skill
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.RangeAttribute.IsInRange(Gr1d.Api.Node.INodeInformation,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Determines if the destination node is in range of the origin
+            </summary>
+            <param name="origin">The origin node</param>
+            <param name="destination">The destination node</param>
+            <returns>A boolean value indicating if the nodes are in range</returns>
+        </member>
+        <member name="M:Gr1d.Api.Skill.RangeAttribute.#ctor(Gr1d.Api.Skill.Range,System.Int32)">
+            <summary>
+            Creates a new RangeAttribute with the specified Range and Distance
+            </summary>
+            <param name="range">The Range to check</param>
+            <param name="distance">The associated Distance</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.RangeAttribute.#ctor(Gr1d.Api.Skill.Range)">
+            <summary>
+            Creates a new RangeAttribute with the specified Range and a default distance of 0
+            </summary>
+            <param name="range">The specified range</param>
+        </member>
+        <member name="P:Gr1d.Api.Skill.RangeAttribute.Distance">
+            <summary>
+            The distance associated with this range
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Skill.RangeAttribute.Range">
+            <summary>
+            The type of distance
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.AgentSkillFailsWhenCasterAffectedByAttribute">
+            <summary>
+            Indicates that the associated skill should fail when the caster is affected by and of the indicated attributes
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.AgentAffectedByAttribute">
+            <summary>
+            A collection of AgentAffects
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.AgentAffectedByAttribute.#ctor(Gr1d.Api.Agent.AgentEffect[])">
+            <summary>
+            Creates a new AgentAffectedByAttribute
+            </summary>
+            <param name="Effects">A set of associated agent affects</param>
+        </member>
+        <member name="M:Gr1d.Api.Skill.AgentSkillFailsWhenCasterAffectedByAttribute.#ctor(Gr1d.Api.Agent.AgentEffect[])">
+            <summary>
+            Indicates that the associated skill should fail when the caster is affect by any supplied agent affects
+            </summary>
+            <param name="Affects">A list of agent affects</param>
+        </member>
+        <member name="T:Gr1d.Api.Deck.TraceType">
+            <summary>
+            Identifies the type of event that caused the trace
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Deck.TraceType.Verbose">
+            <summary>
+            Debugging trace
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Deck.TraceType.Information">
+            <summary>
+            Informational message
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Deck.TraceType.Warning">
+            <summary>
+            Non-critical problem
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Deck.TraceType.Error">
+            <summary>
+            Recoverable error
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Deck.TraceType.Critical">
+            <summary>
+            Fatal error or application crash
+            </summary>
+        </member>
+        <member name="T:Gr1d.Constants">
+            <summary>
+            Standard Gr1d Constants shared across all projects
+            </summary>
+        </member>
+        <member name="F:Gr1d.Constants.DefaultPartFailure">
+            <summary>
+            The default failure rate for parts
+            </summary>
+        </member>
+        <member name="F:Gr1d.Constants.NodesPerPlayer">
+            <summary>
+            The average number of nodes per player
+            </summary>
+        </member>
+        <member name="T:Gr1d.Die">
+            <summary>
+            Die class, shared across all projects
+            </summary>
+        </member>
+        <member name="F:Gr1d.Die.d6">
+            <summary>
+            A standard d6
+            </summary>
+        </member>
+        <member name="F:Gr1d.Die.d20">
+            <summary>
+            A standard d20
+            </summary>
+        </member>
+        <member name="F:Gr1d.Die.d10">
+            <summary>
+            A standard d10
+            </summary>
+        </member>
+        <member name="F:Gr1d.Die.d100">
+            <summary>
+            A standard d100
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.TargetSelfCallback">
+            <summary>
+            Represents a self targetting skill callback
+            </summary>
+            <param name="result">The result of the skill</param>
+            <remarks>This delegate is used in deferred mode</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.TargetSelfStateCallback`1">
+            <summary>
+            Represents a self targetting skill, and supports a caller specified state object
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="result">The result of the skill</param>
+            <remarks>This delegate is used in deferred mode</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer3Skills">
+            <summary>
+            Level 3 engineer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer3Skills.Struts(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Locks the current node, ensuring no agents can enter or leave
+            </summary>
+            <param name="engineer3">The calling agent</param>
+            <param name="target">The targetted node</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>Struts in a node makes it impossible for an agent to enter or leave </remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer4Skills">
+            <summary>
+            Level 4 engineer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer4Skills.Mentor(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Increases the peformance of the targetted agents
+            </summary>
+            <param name="engineer4">The calling agent</param>
+            <param name="target">The targetted agents</param>
+            <returns>The sucess or otherwise of the skill</returns>
+            <remarks>Mentoring increases the performance of the targetted agents'</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer5Skills">
+            <summary>
+            Level 5 engineer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer5Skills.Decompile(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Strips the targetted agent of the ability to use skills
+            </summary>
+            <param name="engineer5">The calling agent</param>
+            <param name="target">The targetted agent</param>
+            <returns>Decompilation renders the targetted agent unable to use skills for the duration</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer6Skills">
+            <summary>
+            Level 6 engineer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer6Skills.Scaffold(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Makes the targetted node immune to any new node targetting affects
+            </summary>
+            <param name="engineer6">The calling agent</param>
+            <param name="target">The targetted agent</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.CausesNodeEffectAttribute">
+            <summary>
+            Indicates that the annoated skill causes the specified Node affect
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.CausesNodeEffectAttribute.#ctor(Gr1d.Api.Node.NodeEffect)">
+            <summary>
+            Creates a new causes Node affect attribute, with the specified affect
+            </summary>
+            <param name="affect">The specified affect</param>
+        </member>
+        <member name="P:Gr1d.Api.Skill.CausesNodeEffectAttribute.Affect">
+            <summary>
+            The affect caused by the skill
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IAgentUpdateInfo">
+            <summary>
+            Indicates an update to an agent's information
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IAgentInfo">
+            <summary>
+            Information about an Agent, provided by the Gr1d
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Level">
+            <summary>
+            The Level of the Agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Id">
+            <summary>
+            The Id of the Agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Stack">
+            <summary>
+            Amount of stack space allocated to this agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Heap">
+            <summary>
+            Amount of heap space allocated to this agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Node">
+            <summary>
+            The Node of this agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Type">
+            <summary>
+            Returns the type of this agent
+            </summary>
+            <example>Designed for runtime checking, as follows 
+                ai.Type == typeof(IEngineer2) // check for a level 2 engineer
+            - or -
+                typeof(IEngineer3).IsAssignableFrom(ai.Type) // check for a level 3 or higher engineer
+            </example>
+            <remarks>This will only ever return a Gr1d.Api type, never the actual type of the player-implemented agent</remarks>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Raid">
+            <summary>
+            The Raid tag of the agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Pack">
+            <summary>
+            The pack of the agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Clan">
+            <summary>
+            The clan of the agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Group">
+            <summary>
+            The group of the agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Owner">
+            <summary>
+            The owner of the Agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Action">
+            <summary>
+            The action being performed by the agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentInfo.Effects">
+            <summary>
+            Effects on the current agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentUpdateInfo.UpdateFlags">
+            <summary>
+            The update flags for this update
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentUpdateInfo.StackPrevious">
+            <summary>
+            Amount of stack space previously allocated to this agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentUpdateInfo.HeapPrevious">
+            <summary>
+            Amount of heap space previously allocated to this agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentUpdateInfo.NodePrevious">
+            <summary>
+            The previous node of this agent
+            </summary>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IAgentUpdateInfo.EffectsPrevious">
+            <summary>
+            The previous effects on this agent
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ITargetNodeStateResult`1">
+            <summary>
+            Represents the result of a node targetting skill, and supports a caller specified state object
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ITargetNodeStateResult`1.State">
+            <summary>
+            Caller specified state object
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.TargetNodeCallback">
+            <summary>
+            Represents a node targetting skill
+            </summary>
+            <param name="result">The result of the skill</param>
+            <remarks>This delegate is used in deferred mode</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.TargetNodeStateCallback`1">
+            <summary>
+            Represents a node targetting skill, and supports a caller specified state object
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="result">The result of the skill</param>
+            <remarks>This delegate is used in deferred mode</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.SelfResultType">
+            <summary>
+            Indicates the success or otherwise of a self targetting skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.SelfResultType.Success">
+            <summary>
+            Success
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.SelfResultType.FailedDifficulty">
+            <summary>
+            Failure.  The agent failed the difficult roll
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.SelfResultType.FailedInvalid">
+            <summary>
+            Failure.  The skill failed, check the message for more details
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.SelfResultType.FailedAfflicted">
+            <summary>
+            Failure.  The skill failed due to an applied affect
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.NodeResultType">
+            <summary>
+            Indicates the success of otherwise of a node related skill
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.NodeResultType.Success">
+            <summary>
+            Indicates success
+            </summary>
+            <remarks>All other values indicate a failure of some sort</remarks>
+        </member>
+        <member name="F:Gr1d.Api.Skill.NodeResultType.FailedOutOfRange">
+            <summary>
+            Failure as the targetted node was out of range
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.NodeResultType.FailedDifficulty">
+            <summary>
+            Failure due to difficulty
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.NodeResultType.FailedInvalidTarget">
+            <summary>
+            Failure as the node is not a valid target.
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.NodeResultType.FailedDueToAgentEffect">
+            <summary>
+            Failed due to having an agent affect applied
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.NodeResultType.FailedPlayerSectorHasDefender">
+            <summary>
+            Failed due to this node being a player node, and there being a defending agent in the sector
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.NodeResultType.FailedDueToNodeEffect">
+            <summary>
+            Failed due to having a node affect applied
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Skill.NodeResultType.FailedAfflicted">
+            <summary>
+            Failure due to applied affect
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IHacker1">
+            <summary>
+            A level 1 Hacker
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IHacker2">
+            <summary>
+            A level 2 Hacker
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IHacker3">
+            <summary>
+            A level 3 Hacker
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IHacker4">
+            <summary>
+            A level 4 Hacker
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IHacker5">
+            <summary>
+            A level 5 Hacker
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IHacker6">
+            <summary>
+            A level 6 Hacker
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IHacker7">
+            <summary>
+            A level 7 Hacker
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IHacker8">
+            <summary>
+            A level 8 Hacker
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IHacker9">
+            <summary>
+            A level 9 Hacker
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IHacker10">
+            <summary>
+            A level 10 Hacker
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISkillStateResult`1">
+            <summary>
+            Represents the result of a skill, and supports a caller specified state object
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+        </member>
+        <member name="P:Gr1d.Api.Skill.ISkillStateResult`1.State">
+            <summary>
+            The caller specified state associated with this result
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer3Skills">
+            <summary>
+            Level 3 marketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer3Skills.Bribe(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Bribes the target to refrain from targetting it with offensive skills
+            </summary>
+            <param name="marketeer3">The calling agent</param>
+            <param name="target">The target agent</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer4Skills">
+            <summary>
+            Level 4 marketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer4Skills.Tempt(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Tempts the target to give up S nodes or take damage.
+            </summary>
+            <param name="marketeer4">The calling agent</param>
+            <param name="target">The target</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>The target agent rolls a Market die against the attacker.  If the target agent wins, it takes damage equal to 2 x the calling agents standard attack.  If the target loses, it donates a random amount of nodes equivalent to its stack to the attacker</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer5Skills">
+            <summary>
+            Level 5 marketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer5Skills.MarketForces(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Makes all skills in the node subject to a market DC
+            </summary>
+            <param name="marketeer5">The calling agent</param>
+            <param name="target">The target node</param>
+            <returns>The success or otherwise of the skill</returns>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer6Skills">
+            <summary>
+            Level 6 marketeer skills
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer6Skills.Mercenary(Gr1d.Api.Agent.IAgent)">
+            <summary>
+            Summons a mercenary of equal level to fight alongside the calling agent
+            </summary>
+            <param name="marketeer6">The calling agent</param>
+            <returns>The success or otherwise of the skill</returns>
+            <remarks>An agent may only ever have one summoned mercenary.  Mercenaries are of level INpc(Level - 1)</remarks>
+        </member>
+        <member name="T:Gr1d.Api.Agent.PackAttribute">
+            <summary>
+            Used to indicate that an agent is part of a pack
+            </summary>
+            <remarks>Packs are a compile-time tag used to group agents</remarks>
+        </member>
+        <member name="M:Gr1d.Api.Agent.PackAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new pack attribute with the specified pack name
+            </summary>
+            <param name="PackName">The pack name of this agent</param>
+        </member>
+        <member name="P:Gr1d.Api.Agent.PackAttribute.Pack">
+            <summary>
+            The pack of the annotated agent
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IPirate1">
+            <summary>
+            A level 1 Pirate
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IPirate2">
+            <summary>
+            A level 2 Pirate
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IPirate3">
+            <summary>
+            A level 3 Pirate
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IPirate4">
+            <summary>
+            A level 4 Pirate
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IPirate5">
+            <summary>
+            A level 5 Pirate
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IPirate6">
+            <summary>
+            A level 6 Pirate
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IPirate7">
+            <summary>
+            A level 7 Pirate
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IPirate8">
+            <summary>
+            A level 8 Pirate
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IPirate9">
+            <summary>
+            A level 9 Pirate
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IPirate10">
+            <summary>
+            A level 10 Pirate
+            </summary>
+        </member>
+        <member name="T:PlayerAttribute">
+            <summary>
+            Player attribute
+            </summary>
+        </member>
+        <member name="F:PlayerAttribute.Ingenuity">
+            <summary>
+            Ingenuity
+            </summary>
+        </member>
+        <member name="F:PlayerAttribute.Infrastructure">
+            <summary>
+            Infrastructure
+            </summary>
+        </member>
+        <member name="F:PlayerAttribute.Librarian">
+            <summary>
+            Librarian
+            </summary>
+        </member>
+        <member name="F:PlayerAttribute.Market">
+            <summary>
+            Market
+            </summary>
+        </member>
+        <member name="F:PlayerAttribute.Performance">
+            <summary>
+            Performance
+            </summary>
+        </member>
+        <member name="F:PlayerAttribute.Productivity">
+            <summary>
+            Productivity
+            </summary>
+        </member>
+        <member name="F:PlayerAttribute.Reliability">
+            <summary>
+            Reliability
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IAgentSkillExtensions">
+            <summary>
+            IAgentSkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkillExtensions.Move(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Attempts to move to the specified node (Direct mode)
+            </summary>
+            <param name="agent">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IAgentSkills.Move(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkillExtensions.Move``1(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Attempts to move to the specified node (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="agent">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IAgentSkills.Move(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkillExtensions.Claim(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Attempts to claim the specified node (Direct mode)
+            </summary>
+            <param name="agent">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IAgentSkills.Claim(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkillExtensions.Claim``1(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Attempts to claim the specified node (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="agent">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IAgentSkills.Claim(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkillExtensions.Attack(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Attempts to attack the targetted agent (Direct mode)
+            </summary>
+            <param name="agent">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IAgentSkills.Attack(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkillExtensions.Attack``1(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Attempts to attack the targetted agent (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="agent">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IAgentSkills.Attack(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkillExtensions.Wait(Gr1d.Api.Agent.IAgent)">
+            <summary>
+            Waits one update (Direct mode)
+            </summary>
+            <param name="agent">The calling agent</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IAgentSkills.Wait(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IAgentSkillExtensions.Wait``1(Gr1d.Api.Agent.IAgent,``0)">
+            <summary>
+            Waits one update (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="agent">The calling agent</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IAgentSkills.Wait(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant1SkillExtensions">
+            <summary>
+            ISavant1SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant1SkillExtensions.Bamf(Gr1d.Api.Agent.ISavant1,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Teleports the target to a random node in the sector (Direct mode)
+            </summary>
+            <param name="savant1">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant1Skills.Bamf(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant1SkillExtensions.Bamf``1(Gr1d.Api.Agent.ISavant1,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Teleports the target to a random node in the sector (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="savant1">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant1Skills.Bamf(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant2SkillExtensions">
+            <summary>
+            ISavant2SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant2SkillExtensions.BufferOverflowA(Gr1d.Api.Agent.ISavant2,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Overflows the buffers of the target agent, triggering a random skill (Direct mode)
+            </summary>
+            <param name="savant2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant2Skills.BufferOverflowA(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant2SkillExtensions.BufferOverflowA``1(Gr1d.Api.Agent.ISavant2,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Overflows the buffers of the target agent, triggering a random skill (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="savant2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant2Skills.BufferOverflowA(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant2SkillExtensions.BufferOverflowN(Gr1d.Api.Agent.ISavant2,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Overflows the buffers of the target node, triggering a random node affect (Direct mode)
+            </summary>
+            <param name="savant2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant2Skills.BufferOverflowN(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant2SkillExtensions.BufferOverflowN``1(Gr1d.Api.Agent.ISavant2,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Overflows the buffers of the target node, triggering a random node affect (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="savant2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant2Skills.BufferOverflowN(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant3SkillExtensions">
+            <summary>
+            ISavant3SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant3SkillExtensions.Compress(Gr1d.Api.Agent.ISavant3,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            While compressed the agent takes double damage (Direct mode)
+            </summary>
+            <param name="savant3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant3Skills.Compress(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant3SkillExtensions.Compress``1(Gr1d.Api.Agent.ISavant3,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            While compressed the agent takes double damage (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="savant3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant3Skills.Compress(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant4SkillExtensions">
+            <summary>
+            ISavant4SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant4SkillExtensions.Banshee(Gr1d.Api.Agent.ISavant4,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Stuns all the targets (Direct mode)
+            </summary>
+            <param name="savant4">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant4Skills.Banshee(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant4SkillExtensions.Banshee``1(Gr1d.Api.Agent.ISavant4,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},``0)">
+            <summary>
+            Stuns all the targets (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="savant4">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant4Skills.Banshee(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant5SkillExtensions">
+            <summary>
+            ISavant5SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant5SkillExtensions.Purify(Gr1d.Api.Agent.ISavant5,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Cleanses the node of all affects (Direct mode)
+            </summary>
+            <param name="savant5">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant5Skills.Purify(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant5SkillExtensions.Purify``1(Gr1d.Api.Agent.ISavant5,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Cleanses the node of all affects (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="savant5">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant5Skills.Purify(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISavant6SkillExtensions">
+            <summary>
+            ISavant6SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant6SkillExtensions.Interfere(Gr1d.Api.Agent.ISavant6,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Interferes with the target, causing its Nodes, and Agents collections to appear empty (Direct mode)
+            </summary>
+            <param name="savant6">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant6Skills.Interfere(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISavant6SkillExtensions.Interfere``1(Gr1d.Api.Agent.ISavant6,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Interferes with the target, causing its Nodes, and Agents collections to appear empty (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="savant6">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISavant6Skills.Interfere(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop1SkillExtensions">
+            <summary>
+            ISysop1SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop1SkillExtensions.Fade(Gr1d.Api.Agent.ISysop1)">
+            <summary>
+            Makes the sysop difficult to detect (Direct mode)
+            </summary>
+            <param name="sysop1">The calling agent</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop1Skills.Fade(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop1SkillExtensions.Fade``1(Gr1d.Api.Agent.ISysop1,``0)">
+            <summary>
+            Makes the sysop difficult to detect (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="sysop1">The calling agent</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop1Skills.Fade(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop2SkillExtensions">
+            <summary>
+            ISysop2SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop2SkillExtensions.Feedback(Gr1d.Api.Agent.ISysop2)">
+            <summary>
+            Causes damage to be dealt back to attackers (Direct mode)
+            </summary>
+            <param name="sysop2">The calling agent</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop2Skills.Feedback(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop2SkillExtensions.Feedback``1(Gr1d.Api.Agent.ISysop2,``0)">
+            <summary>
+            Causes damage to be dealt back to attackers (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="sysop2">The calling agent</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop2Skills.Feedback(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop3SkillExtensions">
+            <summary>
+            ISysop3SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop3SkillExtensions.FalseAddress(Gr1d.Api.Agent.ISysop3,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Sends a false node address to the target (Direct mode)
+            </summary>
+            <param name="sysop3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop3Skills.FalseAddress(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop3SkillExtensions.FalseAddress``1(Gr1d.Api.Agent.ISysop3,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Sends a false node address to the target (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="sysop3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop3Skills.FalseAddress(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop4SkillExtensions">
+            <summary>
+            ISysop4SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop4SkillExtensions.DarkFibreA(Gr1d.Api.Agent.ISysop4,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Teleports to the target agent (Direct mode)
+            </summary>
+            <param name="sysop4">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop4Skills.DarkFibreA(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop4SkillExtensions.DarkFibreA``1(Gr1d.Api.Agent.ISysop4,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Teleports to the target agent (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="sysop4">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop4Skills.DarkFibreA(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop4SkillExtensions.DarkFibreN(Gr1d.Api.Agent.ISysop4,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Teleports to the target node (Direct mode)
+            </summary>
+            <param name="sysop4">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop4Skills.DarkFibreN(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop4SkillExtensions.DarkFibreN``1(Gr1d.Api.Agent.ISysop4,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Teleports to the target node (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="sysop4">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop4Skills.DarkFibreN(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop5SkillExtensions">
+            <summary>
+            ISysop5SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop5SkillExtensions.Bitrot(Gr1d.Api.Agent.ISysop5,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Introduces periodic damage into the target node (Direct mode)
+            </summary>
+            <param name="sysop5">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop5Skills.Bitrot(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop5SkillExtensions.Bitrot``1(Gr1d.Api.Agent.ISysop5,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Introduces periodic damage into the target node (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="sysop5">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop5Skills.Bitrot(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.ISysop6SkillExtensions">
+            <summary>
+            ISysop6SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop6SkillExtensions.su(Gr1d.Api.Agent.ISysop6)">
+            <summary>
+            Makes subsequent skills take less time and act more reliably (Direct mode)
+            </summary>
+            <param name="sysop6">The calling agent</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop6Skills.su(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.ISysop6SkillExtensions.su``1(Gr1d.Api.Agent.ISysop6,``0)">
+            <summary>
+            Makes subsequent skills take less time and act more reliably (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="sysop6">The calling agent</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.ISysop6Skills.su(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer1SkillExtensions">
+            <summary>
+            IRacketeer1SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer1SkillExtensions.Scam(Gr1d.Api.Agent.IRacketeer1,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Scams the target, disrupting them (Direct mode)
+            </summary>
+            <param name="racketeer1">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer1Skills.Scam(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer1SkillExtensions.Scam``1(Gr1d.Api.Agent.IRacketeer1,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Scams the target, disrupting them (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="racketeer1">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer1Skills.Scam(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer2SkillExtensions">
+            <summary>
+            IRacketeer2SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer2SkillExtensions.Shadow(Gr1d.Api.Agent.IRacketeer2,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Shadows the target, moving along with it (Direct mode)
+            </summary>
+            <param name="racketeer2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer2Skills.Shadow(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer2SkillExtensions.Shadow``1(Gr1d.Api.Agent.IRacketeer2,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Shadows the target, moving along with it (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="racketeer2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer2Skills.Shadow(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer3SkillExtensions">
+            <summary>
+            IRacketeer3SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer3SkillExtensions.StreetSmarts(Gr1d.Api.Agent.IRacketeer3)">
+            <summary>
+            Makes the caster immune to most affects (Direct mode)
+            </summary>
+            <param name="racketeer3">The calling agent</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer3Skills.StreetSmarts(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer3SkillExtensions.StreetSmarts``1(Gr1d.Api.Agent.IRacketeer3,``0)">
+            <summary>
+            Makes the caster immune to most affects (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="racketeer3">The calling agent</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer3Skills.StreetSmarts(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer4SkillExtensions">
+            <summary>
+            IRacketeer4SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer4SkillExtensions.Wall(Gr1d.Api.Agent.IRacketeer4,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Deals damage to all targets (Direct mode)
+            </summary>
+            <param name="racketeer4">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer4Skills.Wall(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer4SkillExtensions.Wall``1(Gr1d.Api.Agent.IRacketeer4,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},``0)">
+            <summary>
+            Deals damage to all targets (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="racketeer4">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer4Skills.Wall(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer5SkillExtensions">
+            <summary>
+            IRacketeer5SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer5SkillExtensions.Rally(Gr1d.Api.Agent.IRacketeer5,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Rally's the targets, granting increased attributes (Direct mode)
+            </summary>
+            <param name="racketeer5">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer5Skills.Rally(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer5SkillExtensions.Rally``1(Gr1d.Api.Agent.IRacketeer5,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},``0)">
+            <summary>
+            Rally's the targets, granting increased attributes (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="racketeer5">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer5Skills.Rally(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IRacketeer6SkillExtensions">
+            <summary>
+            IRacketeer6SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer6SkillExtensions.Whirlwind(Gr1d.Api.Agent.IRacketeer6,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Causes node wide damage (Direct mode)
+            </summary>
+            <param name="racketeer6">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer6Skills.Whirlwind(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IRacketeer6SkillExtensions.Whirlwind``1(Gr1d.Api.Agent.IRacketeer6,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Causes node wide damage (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="racketeer6">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IRacketeer6Skills.Whirlwind(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer1SkillExtensions">
+            <summary>
+            IEngineer1SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer1SkillExtensions.UnitTest(Gr1d.Api.Agent.IEngineer1)">
+            <summary>
+            Improves the reliability of the agent (Direct mode)
+            </summary>
+            <param name="engineer1">The calling agent</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer1Skills.UnitTest(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer1SkillExtensions.UnitTest``1(Gr1d.Api.Agent.IEngineer1,``0)">
+            <summary>
+            Improves the reliability of the agent (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="engineer1">The calling agent</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer1Skills.UnitTest(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer1SkillExtensions">
+            <summary>
+            IMarketeer1SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer1SkillExtensions.Servitude(Gr1d.Api.Agent.IMarketeer1,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Shares damage with the target (Direct mode)
+            </summary>
+            <param name="marketeer1">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer1Skills.Servitude(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer1SkillExtensions.Servitude``1(Gr1d.Api.Agent.IMarketeer1,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Shares damage with the target (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="marketeer1">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer1Skills.Servitude(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.INpc1SkillExtensions">
+            <summary>
+            INpc1SkillExtensions
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer2SkillExtensions">
+            <summary>
+            IEngineer2SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer2SkillExtensions.Pin(Gr1d.Api.Agent.IEngineer2,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Makes the targetted agent unable to move (Direct mode)
+            </summary>
+            <param name="engineer2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer2Skills.Pin(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer2SkillExtensions.Pin``1(Gr1d.Api.Agent.IEngineer2,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Makes the targetted agent unable to move (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="engineer2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer2Skills.Pin(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer2SkillExtensions">
+            <summary>
+            IMarketeer2SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer2SkillExtensions.Payoff(Gr1d.Api.Agent.IMarketeer2)">
+            <summary>
+            Relinquishes random nodes to recover stack (Direct mode)
+            </summary>
+            <param name="marketeer2">The calling agent</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer2Skills.Payoff(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer2SkillExtensions.Payoff``1(Gr1d.Api.Agent.IMarketeer2,``0)">
+            <summary>
+            Relinquishes random nodes to recover stack (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="marketeer2">The calling agent</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer2Skills.Payoff(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.INpc2SkillExtensions">
+            <summary>
+            INpc2SkillExtensions
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate1SkillExtensions">
+            <summary>
+            IPirate1SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate1SkillExtensions.Copy(Gr1d.Api.Agent.IPirate1)">
+            <summary>
+            Creates a copy of itself (Direct mode)
+            </summary>
+            <param name="pirate1">The calling agent</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate1Skills.Copy(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate1SkillExtensions.Copy``1(Gr1d.Api.Agent.IPirate1,``0)">
+            <summary>
+            Creates a copy of itself (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="pirate1">The calling agent</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate1Skills.Copy(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate2SkillExtensions">
+            <summary>
+            IPirate2SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate2SkillExtensions.Init3(Gr1d.Api.Agent.IPirate2,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Remove all negative affects from the target (Direct mode)
+            </summary>
+            <param name="pirate2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate2Skills.Init3(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate2SkillExtensions.Init3``1(Gr1d.Api.Agent.IPirate2,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Remove all negative affects from the target (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="pirate2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate2Skills.Init3(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate3SkillExtensions">
+            <summary>
+            IPirate3SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate3SkillExtensions.Feint(Gr1d.Api.Agent.IPirate3,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Apply negative affects silently (Direct mode)
+            </summary>
+            <param name="pirate3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate3Skills.Feint(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate3SkillExtensions.Feint``1(Gr1d.Api.Agent.IPirate3,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Apply negative affects silently (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="pirate3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate3Skills.Feint(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate4SkillExtensions">
+            <summary>
+            IPirate4SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate4SkillExtensions.Summon(Gr1d.Api.Agent.IPirate4,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Summons the targetted agent (Direct mode)
+            </summary>
+            <param name="pirate4">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate4Skills.Summon(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate4SkillExtensions.Summon``1(Gr1d.Api.Agent.IPirate4,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Summons the targetted agent (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="pirate4">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate4Skills.Summon(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate5SkillExtensions">
+            <summary>
+            IPirate5SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate5SkillExtensions.Virus(Gr1d.Api.Agent.IPirate5,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Infects the node and its surrounds (Direct mode)
+            </summary>
+            <param name="pirate5">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate5Skills.Virus(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate5SkillExtensions.Virus``1(Gr1d.Api.Agent.IPirate5,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Infects the node and its surrounds (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="pirate5">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate5Skills.Virus(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IPirate6SkillExtensions">
+            <summary>
+            IPirate6SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate6SkillExtensions.Botnet(Gr1d.Api.Agent.IPirate6,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Gives the targets control of a botnet for increased performance (Direct mode)
+            </summary>
+            <param name="pirate6">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate6Skills.Botnet(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IPirate6SkillExtensions.Botnet``1(Gr1d.Api.Agent.IPirate6,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},``0)">
+            <summary>
+            Gives the targets control of a botnet for increased performance (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="pirate6">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IPirate6Skills.Botnet(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker1SkillExtensions">
+            <summary>
+            IHacker1SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker1SkillExtensions.TheZone(Gr1d.Api.Agent.IHacker1)">
+            <summary>
+            Increases all attributes (Direct mode)
+            </summary>
+            <param name="hacker1">The calling agent</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker1Skills.TheZone(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker1SkillExtensions.TheZone``1(Gr1d.Api.Agent.IHacker1,``0)">
+            <summary>
+            Increases all attributes (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="hacker1">The calling agent</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker1Skills.TheZone(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker2SkillExtensions">
+            <summary>
+            IHacker2SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker2SkillExtensions.Fragment(Gr1d.Api.Agent.IHacker2,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Fragments the node, reducing reliability of code running it (Direct mode)
+            </summary>
+            <param name="hacker2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker2Skills.Fragment(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker2SkillExtensions.Fragment``1(Gr1d.Api.Agent.IHacker2,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Fragments the node, reducing reliability of code running it (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="hacker2">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker2Skills.Fragment(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker3SkillExtensions">
+            <summary>
+            IHacker3SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker3SkillExtensions.TransparentProxy(Gr1d.Api.Agent.IHacker3,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Runs up a transparent proxy between the target and the gr1d. (Direct mode)
+            </summary>
+            <param name="hacker3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker3Skills.TransparentProxy(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker3SkillExtensions.TransparentProxy``1(Gr1d.Api.Agent.IHacker3,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Runs up a transparent proxy between the target and the gr1d. (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="hacker3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker3Skills.TransparentProxy(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker4SkillExtensions">
+            <summary>
+            IHacker4SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker4SkillExtensions.BitShift(Gr1d.Api.Agent.IHacker4,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Shifts bits with the target agent (Direct mode)
+            </summary>
+            <param name="hacker4">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker4Skills.BitShift(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker4SkillExtensions.BitShift``1(Gr1d.Api.Agent.IHacker4,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Shifts bits with the target agent (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="hacker4">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker4Skills.BitShift(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker5SkillExtensions">
+            <summary>
+            IHacker5SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker5SkillExtensions.Haste(Gr1d.Api.Agent.IHacker5,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Makes the targets perform more quickly (Direct mode)
+            </summary>
+            <param name="hacker5">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker5Skills.Haste(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker5SkillExtensions.Haste``1(Gr1d.Api.Agent.IHacker5,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},``0)">
+            <summary>
+            Makes the targets perform more quickly (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="hacker5">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker5Skills.Haste(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IHacker6SkillExtensions">
+            <summary>
+            IHacker6SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker6SkillExtensions.Worm(Gr1d.Api.Agent.IHacker6,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Infects the targets with a damage dealing worm (Direct mode)
+            </summary>
+            <param name="hacker6">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker6Skills.Worm(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IHacker6SkillExtensions.Worm``1(Gr1d.Api.Agent.IHacker6,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},``0)">
+            <summary>
+            Infects the targets with a damage dealing worm (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="hacker6">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IHacker6Skills.Worm(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer3SkillExtensions">
+            <summary>
+            IEngineer3SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer3SkillExtensions.Struts(Gr1d.Api.Agent.IEngineer3,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Locks the current node, ensuring no agents can enter or leave (Direct mode)
+            </summary>
+            <param name="engineer3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer3Skills.Struts(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer3SkillExtensions.Struts``1(Gr1d.Api.Agent.IEngineer3,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Locks the current node, ensuring no agents can enter or leave (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="engineer3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer3Skills.Struts(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer4SkillExtensions">
+            <summary>
+            IEngineer4SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer4SkillExtensions.Mentor(Gr1d.Api.Agent.IEngineer4,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})">
+            <summary>
+            Increases the peformance of the targetted agents (Direct mode)
+            </summary>
+            <param name="engineer4">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer4Skills.Mentor(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer4SkillExtensions.Mentor``1(Gr1d.Api.Agent.IEngineer4,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo},``0)">
+            <summary>
+            Increases the peformance of the targetted agents (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="engineer4">The calling agent</param>
+            <param name="target">The target System.Collections.Generic.IEnumerable`1[Gr1d.Api.Agent.IAgentInfo]</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer4Skills.Mentor(Gr1d.Api.Agent.IAgent,System.Collections.Generic.IEnumerable{Gr1d.Api.Agent.IAgentInfo})"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer5SkillExtensions">
+            <summary>
+            IEngineer5SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer5SkillExtensions.Decompile(Gr1d.Api.Agent.IEngineer5,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Strips the targetted agent of the ability to use skills (Direct mode)
+            </summary>
+            <param name="engineer5">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer5Skills.Decompile(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer5SkillExtensions.Decompile``1(Gr1d.Api.Agent.IEngineer5,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Strips the targetted agent of the ability to use skills (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="engineer5">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer5Skills.Decompile(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IEngineer6SkillExtensions">
+            <summary>
+            IEngineer6SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer6SkillExtensions.Scaffold(Gr1d.Api.Agent.IEngineer6,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Makes the targetted node immune to any new node targetting affects (Direct mode)
+            </summary>
+            <param name="engineer6">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer6Skills.Scaffold(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IEngineer6SkillExtensions.Scaffold``1(Gr1d.Api.Agent.IEngineer6,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Makes the targetted node immune to any new node targetting affects (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="engineer6">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IEngineer6Skills.Scaffold(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer3SkillExtensions">
+            <summary>
+            IMarketeer3SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer3SkillExtensions.Bribe(Gr1d.Api.Agent.IMarketeer3,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Bribes the target to use a beneficial skill on it (Direct mode)
+            </summary>
+            <param name="marketeer3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer3Skills.Bribe(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer3SkillExtensions.Bribe``1(Gr1d.Api.Agent.IMarketeer3,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Bribes the target to use a beneficial skill on it (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="marketeer3">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer3Skills.Bribe(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer4SkillExtensions">
+            <summary>
+            IMarketeer4SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer4SkillExtensions.Tempt(Gr1d.Api.Agent.IMarketeer4,Gr1d.Api.Agent.IAgentInfo)">
+            <summary>
+            Tempts the target to give up a node or take damage. (Direct mode)
+            </summary>
+            <param name="marketeer4">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer4Skills.Tempt(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer4SkillExtensions.Tempt``1(Gr1d.Api.Agent.IMarketeer4,Gr1d.Api.Agent.IAgentInfo,``0)">
+            <summary>
+            Tempts the target to give up a node or take damage. (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="marketeer4">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Agent.IAgentInfo</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer4Skills.Tempt(Gr1d.Api.Agent.IAgent,Gr1d.Api.Agent.IAgentInfo)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer5SkillExtensions">
+            <summary>
+            IMarketeer5SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer5SkillExtensions.MarketForces(Gr1d.Api.Agent.IMarketeer5,Gr1d.Api.Node.INodeInformation)">
+            <summary>
+            Makes all skills in the node subject to a market DC (Direct mode)
+            </summary>
+            <param name="marketeer5">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer5Skills.MarketForces(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer5SkillExtensions.MarketForces``1(Gr1d.Api.Agent.IMarketeer5,Gr1d.Api.Node.INodeInformation,``0)">
+            <summary>
+            Makes all skills in the node subject to a market DC (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="marketeer5">The calling agent</param>
+            <param name="target">The target Gr1d.Api.Node.INodeInformation</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer5Skills.MarketForces(Gr1d.Api.Agent.IAgent,Gr1d.Api.Node.INodeInformation)"/>
+        </member>
+        <member name="T:Gr1d.Api.Skill.IMarketeer6SkillExtensions">
+            <summary>
+            IMarketeer6SkillExtensions
+            </summary>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer6SkillExtensions.Mercenary(Gr1d.Api.Agent.IMarketeer6)">
+            <summary>
+            Summons a mercenary of equal level to fight alongside the calling agent (Direct mode)
+            </summary>
+            <param name="marketeer6">The calling agent</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer6Skills.Mercenary(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="M:Gr1d.Api.Skill.IMarketeer6SkillExtensions.Mercenary``1(Gr1d.Api.Agent.IMarketeer6,``0)">
+            <summary>
+            Summons a mercenary of equal level to fight alongside the calling agent (Direct mode, with a caller specified state object)
+            </summary>
+            <typeparam name="TState">The type of the caller specified state</typeparam>
+            <param name="marketeer6">The calling agent</param>
+            <param name="state">The caller specified state object</param>
+            <returns>The result of the skill</returns>
+            <seealso cref="M:Gr1d.Api.Skill.IMarketeer6Skills.Mercenary(Gr1d.Api.Agent.IAgent)"/>
+        </member>
+        <member name="T:Gr1d.Api.Agent.AgentUpdateType">
+            <summary>
+            Flags to specify which information is included in an AgentUpdate message
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentUpdateType.None">
+            <summary>
+            No messages
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentUpdateType.Stack">
+            <summary>
+            Stack information
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentUpdateType.Heap">
+            <summary>
+            Heap information
+            </summary>
+        </member>
+        <member name="F:Gr1d.Api.Agent.AgentUpdateType.Node">
+            <summary>
+            Node information
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IMarketeer1">
+            <summary>
+            A level 1 Marketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IMarketeer2">
+            <summary>
+            A level 2 Marketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IMarketeer3">
+            <summary>
+            A level 3 Marketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IMarketeer4">
+            <summary>
+            A level 4 Marketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IMarketeer5">
+            <summary>
+            A level 5 Marketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IMarketeer6">
+            <summary>
+            A level 6 Marketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IMarketeer7">
+            <summary>
+            A level 7 Marketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IMarketeer8">
+            <summary>
+            A level 8 Marketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IMarketeer9">
+            <summary>
+            A level 9 Marketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IMarketeer10">
+            <summary>
+            A level 10 Marketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IRacketeer1">
+            <summary>
+            A level 1 Racketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IRacketeer2">
+            <summary>
+            A level 2 Racketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IRacketeer3">
+            <summary>
+            A level 3 Racketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IRacketeer4">
+            <summary>
+            A level 4 Racketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IRacketeer5">
+            <summary>
+            A level 5 Racketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IRacketeer6">
+            <summary>
+            A level 6 Racketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IRacketeer7">
+            <summary>
+            A level 7 Racketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IRacketeer8">
+            <summary>
+            A level 8 Racketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IRacketeer9">
+            <summary>
+            A level 9 Racketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IRacketeer10">
+            <summary>
+            A level 10 Racketeer
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISysop1">
+            <summary>
+            A level 1 Sysop
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISysop2">
+            <summary>
+            A level 2 Sysop
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISysop3">
+            <summary>
+            A level 3 Sysop
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISysop4">
+            <summary>
+            A level 4 Sysop
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISysop5">
+            <summary>
+            A level 5 Sysop
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISysop6">
+            <summary>
+            A level 6 Sysop
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISysop7">
+            <summary>
+            A level 7 Sysop
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISysop8">
+            <summary>
+            A level 8 Sysop
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISysop9">
+            <summary>
+            A level 9 Sysop
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.ISysop10">
+            <summary>
+            A level 10 Sysop
+            </summary>
+        </member>
+        <member name="T:Gr1d.Api.Agent.IKnownAgent`1">
+            <summary>
+            Represents a known agent type
+            </summary>
+            <typeparam name="AgentType">The type of known agent</typeparam>
+        </member>
+        <member name="P:Gr1d.Api.Agent.IKnownAgent`1.Implementation">
+            <summary>
+            The known agent
+            </summary>
+        </member>
+    </members>
+</doc>

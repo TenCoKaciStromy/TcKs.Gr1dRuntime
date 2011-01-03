@@ -1,0 +1,15 @@
+bin/
+bin/*
+*/bin/
+*/bin/*
+
+obj/
+obj/*
+*/obj/
+*/obj/*
+
+*.user
+*/*.user
+
+*.suo
+*/*.suo
